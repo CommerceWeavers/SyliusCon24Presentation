@@ -19,7 +19,7 @@ final class GiftCardGrid extends AbstractGrid implements ResourceAwareGridInterf
 {
     public static function getName(): string
     {
-        return 'app_GiftCard';
+        return 'app_gift_card';
     }
 
     public function buildGrid(GridBuilderInterface $gridBuilder): void
