@@ -4,11 +4,25 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Grid\PackagingGrid;
 use App\Repository\PackagingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Resource\Metadata\AsResource;
+use Sylius\Resource\Metadata\BulkDelete;
+use Sylius\Resource\Metadata\Create;
+use Sylius\Resource\Metadata\Delete;
+use Sylius\Resource\Metadata\Index;
+use Sylius\Resource\Metadata\Update;
+use Sylius\Resource\Model\ResourceInterface;
 
 #[ORM\Entity(repositoryClass: PackagingRepository::class)]
-class Packaging
+#[AsResource(section: 'admin', templatesDir: '@SyliusAdmin/shared/crud', routePrefix: 'admin')]
+#[Index(grid: PackagingGrid::class)]
+#[Create]
+#[BulkDelete]
+#[Update]
+#[Delete]
+class Packaging implements ResourceInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
