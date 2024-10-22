@@ -5,4 +5,11 @@ app:
         gift_cards: Gift Cards
         gift_card: Gift Card
         generated_gift_card_value: Generated Gift Card Value
-        
+        min: Min
+        max: Max
+        unit: Unit
+
+sylius:
+    form:
+        attribute_type:
+            range: Range
