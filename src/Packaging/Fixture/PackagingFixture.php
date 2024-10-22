@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Fixture;
+namespace App\Packaging\Fixture;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Faker\Factory;

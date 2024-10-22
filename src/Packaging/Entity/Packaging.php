@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Entity;
+namespace App\Packaging\Entity;
 
-use App\Form\PackagingType;
-use App\Grid\PackagingGrid;
-use App\Repository\PackagingRepository;
+use App\Packaging\Form\PackagingType;
+use App\Packaging\Grid\PackagingGrid;
+use App\Packaging\Repository\PackagingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Resource\Metadata\AsResource;
 use Sylius\Resource\Metadata\BulkDelete;
