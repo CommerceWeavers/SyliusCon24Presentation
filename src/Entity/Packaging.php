@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Form\PackagingType;
 use App\Grid\PackagingGrid;
 use App\Repository\PackagingRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,9 +19,9 @@ use Sylius\Resource\Model\ResourceInterface;
 #[ORM\Entity(repositoryClass: PackagingRepository::class)]
 #[AsResource(section: 'admin', templatesDir: '@SyliusAdmin/shared/crud', routePrefix: 'admin')]
 #[Index(grid: PackagingGrid::class)]
-#[Create]
+#[Create(formType: PackagingType::class)]
 #[BulkDelete]
-#[Update]
+#[Update(formType: PackagingType::class)]
 #[Delete]
 class Packaging implements ResourceInterface
 {
