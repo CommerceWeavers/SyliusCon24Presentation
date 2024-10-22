@@ -36,8 +36,8 @@ class Packaging implements ResourceInterface
     #[ORM\Column(length: 255)]
     private ?string $code = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $price = null;
+    #[ORM\Column(type: 'integer')]
+    private ?int $price = null;
 
     public function getId(): ?int
     {
@@ -68,12 +68,12 @@ class Packaging implements ResourceInterface
         return $this;
     }
 
-    public function getPrice(): ?string
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(string $price): static
+    public function setPrice(int $price): static
     {
         $this->price = $price;
 

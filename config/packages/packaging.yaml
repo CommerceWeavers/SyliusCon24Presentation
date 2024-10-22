@@ -1,0 +1,7 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                packaging:
+                    options:
+                        amount: 10
