@@ -12,8 +12,23 @@ use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
 #[ORM\Table(name: 'sylius_product_variant')]
 class ProductVariant extends BaseProductVariant
 {
+    #[ORM\Column]
+    private ?int $generatedGiftCardValue = null;
+
     protected function createTranslation(): ProductVariantTranslationInterface
     {
         return new ProductVariantTranslation();
+    }
+
+    public function getGeneratedGiftCardValue(): ?int
+    {
+        return $this->generatedGiftCardValue;
+    }
+
+    public function setGeneratedGiftCardValue(int $generatedGiftCardValue): static
+    {
+        $this->generatedGiftCardValue = $generatedGiftCardValue;
+
+        return $this;
     }
 }

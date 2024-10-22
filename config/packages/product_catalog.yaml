@@ -6,3 +6,6 @@ sylius_twig_hooks:
         'sylius_admin.product.create.content.form.sections.general':
             packable:
                 template: 'admin/product/form/sections/general/packable.html.twig'
+        'sylius_admin.product_variant.update.content.form.sections':
+            general:
+                template: 'admin/product_variant/form/sections/general.html.twig'

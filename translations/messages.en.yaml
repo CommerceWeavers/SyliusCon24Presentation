@@ -4,4 +4,5 @@ app:
         packaging: Packaging
         gift_cards: Gift Cards
         gift_card: Gift Card
+        generated_gift_card_value: Generated Gift Card Value
         
