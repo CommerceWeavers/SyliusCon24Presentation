@@ -37,7 +37,7 @@ final class PackagingGrid extends AbstractGrid implements ResourceAwareGridInter
                     ->setSortable(true)
             )
             ->addField(
-                TwigField::create('price', 'Admin/Grid/_price.html.twig')
+                TwigField::create('price', 'admin/grid/_price.html.twig')
                     ->setLabel('Price')
                     ->setSortable(true)
             )

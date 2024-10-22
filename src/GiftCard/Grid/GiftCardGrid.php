@@ -32,7 +32,7 @@ final class GiftCardGrid extends AbstractGrid implements ResourceAwareGridInterf
                     ->setSortable(true)
             )
             ->addField(
-                TwigField::create('amount', 'Admin/GiftCard/Grid/_amount.html.twig')
+                TwigField::create('amount', 'admin/gift_card/grid/_amount.html.twig')
                     ->setLabel('Amount')
                     ->setSortable(true)
             )
