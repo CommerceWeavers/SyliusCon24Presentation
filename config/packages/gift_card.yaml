@@ -1,0 +1,8 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                gift_card:
+                    name: gift_card
+                    options:
+                        amount: 5
