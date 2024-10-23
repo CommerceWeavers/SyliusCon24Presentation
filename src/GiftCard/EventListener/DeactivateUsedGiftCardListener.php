@@ -10,7 +10,6 @@ use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\Workflow\Event\Event;
-use Symfony\Component\Workflow\Workflow;
 use Webmozart\Assert\Assert;
 
 final class DeactivateUsedGiftCardListener
