@@ -18,7 +18,7 @@ use Sylius\Resource\Metadata\Update;
 use Sylius\Resource\Model\ResourceInterface;
 
 #[ORM\Entity(repositoryClass: GiftCardRepository::class)]
-#[AsResource(section: 'admin', templatesDir: '@SyliusAdmin/shared/crud', routePrefix: 'admin')]
+#[AsResource(section: 'admin', routePrefix: 'admin')]
 #[Index(grid: GiftCardGrid::class)]
 #[Create(formType: GiftCardType::class)]
 #[BulkDelete]

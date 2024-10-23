@@ -3,6 +3,8 @@ sylius_resource:
     # Override default settings
     #settings:
 
+    settings:
+        default_templates_dir: '@SyliusAdmin/shared/crud'
     # Configure the mapping for your resources
     mapping:
         paths:
