@@ -21,10 +21,25 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{Entity,*/Entity,Tests,Kernel.php}'
+        exclude: '../src/{Entity,*/Entity,GiftCard/Twig,Tests,Kernel.php}'
 
     # Controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    sylius_shop.twig.component.cart.form:
+        autoconfigure: false
+        class: App\GiftCard\Twig\Component\Cart\FormComponent 
+        arguments:
+            - '@sylius.repository.order'
+            - '@form.factory'
+            - '%sylius.model.order.class%'
+            - 'Sylius\Bundle\ShopBundle\Form\Type\CartType'
+            - '@doctrine.orm.entity_manager'
+            - '@event_dispatcher'
+        calls:
+            - [setLiveResponder, ['@ux.live_component.live_responder']]
+        tags:
+            - { name: sylius.live_component.shop, key: sylius_shop:cart:form }

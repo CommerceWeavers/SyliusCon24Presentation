@@ -8,7 +8,8 @@ app:
         min: Min
         max: Max
         unit: Unit
-
+        apply_gift_card: Apply Gift Card code
+        applied_gift_card: Applied Gift Card
 sylius:
     form:
         attribute_type:

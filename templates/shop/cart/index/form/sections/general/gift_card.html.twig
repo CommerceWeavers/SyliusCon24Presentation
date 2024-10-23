@@ -1,0 +1,33 @@
+{% from '@SyliusShop/shared/icon.html.twig' import icon %}
+
+{% set form = hookable_metadata.context.form %}
+{% set form_promotion_gift_card = form.giftCardCode %}
+
+{% if form_promotion_gift_card is defined %}
+    <div class="mb-4">
+        <div class="p-4 bg-light">
+            <div class="input-group field">
+                {% if form_promotion_gift_card.vars.value is not empty and form_promotion_gift_card.vars.valid %}
+                    <div class="card d-flex flex-row justify-content-between align-items-center w-100 py-2 px-3">
+                        <div class="d-flex flex-wrap" style="gap: .5rem 0;">
+                            <span class="me-2">{{ 'app.ui.applied_gift_card'|trans }}:</span>
+                            <span class="badge d-flex align-items-center text-bg-secondary">
+                                {{ form_promotion_gift_card.vars.value }}
+                            </span>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-transparent d-flex align-items-center p-0"
+                                data-action="live#action:prevent"
+                                data-live-action-param="removeGiftCardCode"
+                        >
+                            {{ icon('trash') }}
+                        </button>
+                    </div>
+                {% else %}
+                    {{ form_widget(form_promotion_gift_card, {'attr': {'data-model': 'norender|sylius_shop_cart[giftCardCode]', 'form': form.vars.id, 'placeholder': 'sylius.ui.enter_your_code'|trans ~ '...'}}) }}
+                    <button class="btn btn-outline-gray" type="button" data-action="live#$render">{{ 'app.ui.apply_gift_card'|trans }}</button>
+                    {{ form_errors(form_promotion_gift_card) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

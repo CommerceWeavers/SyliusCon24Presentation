@@ -5,6 +5,13 @@ sylius_twig_hooks:
                 template: 'shop/show/page/info/summary/add_to_cart/package.html.twig'
                 priority: 50
         'sylius_shop.cart.index.form.sections.general.summary':
-            ordering:
+            packaging:
                 template: 'shop/cart/index/form/sections/general/summary/package.html.twig'
+                priority: 150
+            gift_card:
+                template: 'shop/cart/index/form/sections/general/summary/gift_card.html.twig'
+                priority: 150
+        'sylius_shop.cart.index.form.sections.general#left':
+            gift_card:
+                template: 'shop/cart/index/form/sections/general/gift_card.html.twig'
                 priority: 150
