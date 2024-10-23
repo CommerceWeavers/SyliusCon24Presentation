@@ -23,7 +23,7 @@ final class GenerateGiftCardListener
     ) {
     }
 
-    #[AsEventListener(event: 'workflow.sylius_order.transition.create')]
+    #[AsEventListener(event: 'workflow.sylius_order.transition.fulfill')]
     public function onGiftCardsMenu(Event $event): void
     {
         /** @var Order|mixed $order */
