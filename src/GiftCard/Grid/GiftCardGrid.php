@@ -3,6 +3,8 @@
 namespace App\GiftCard\Grid;
 
 use App\GiftCard\Entity\GiftCard;
+use Sylius\Bundle\GridBundle\Builder\Action\Action;
+use Sylius\Bundle\GridBundle\Builder\Action\ApplyTransitionAction;
 use Sylius\Bundle\GridBundle\Builder\Action\CreateAction;
 use Sylius\Bundle\GridBundle\Builder\Action\DeleteAction;
 use Sylius\Bundle\GridBundle\Builder\Action\UpdateAction;
@@ -36,6 +38,11 @@ final class GiftCardGrid extends AbstractGrid implements ResourceAwareGridInterf
                     ->setLabel('Amount')
                     ->setSortable(true)
             )
+            ->addField(
+                StringField::create('state')
+                    ->setLabel('State')
+                    ->setSortable(true)
+            )
             ->addActionGroup(
                 MainActionGroup::create(
                     CreateAction::create(),
@@ -43,9 +50,21 @@ final class GiftCardGrid extends AbstractGrid implements ResourceAwareGridInterf
             )
             ->addActionGroup(
                 ItemActionGroup::create(
-                    // ShowAction::create(),
                     UpdateAction::create(),
-                    DeleteAction::create()
+                    DeleteAction::create(),
+                    ApplyTransitionAction::create(
+                        'deactivate',
+                        'app_admin_gift_card_deactivate',
+                        ['id' => 'resource.id'],
+                        [
+                            'graph' => 'gift_card',
+                            'transition' => 'deactivate',
+                            'class' => 'btn btn-icon text-danger',
+                        ]
+                    )
+                        ->setIcon('x')
+                        ->setLabel('Deactivate')
+                    ,
                 )
             )
             ->addActionGroup(

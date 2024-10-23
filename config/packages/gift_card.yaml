@@ -6,3 +6,21 @@ sylius_fixtures:
                     name: gift_card
                     options:
                         amount: 5
+
+framework:
+    workflows:
+        gift_card:
+            type: 'state_machine'
+            marking_store:
+                type: 'method'
+                property: 'state'
+            supports:
+                - App\GiftCard\Entity\GiftCard
+            initial_marking: [active]
+            places:
+                - active
+                - inactive
+            transitions:
+                deactivate:
+                    from: active
+                    to: inactive

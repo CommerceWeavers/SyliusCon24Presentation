@@ -8,6 +8,7 @@ use App\GiftCard\Form\GiftCardType;
 use App\GiftCard\Grid\GiftCardGrid;
 use App\GiftCard\Repository\GiftCardRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Resource\Metadata\ApplyStateMachineTransition;
 use Sylius\Resource\Metadata\AsResource;
 use Sylius\Resource\Metadata\BulkDelete;
 use Sylius\Resource\Metadata\Create;
@@ -23,8 +24,11 @@ use Sylius\Resource\Model\ResourceInterface;
 #[BulkDelete]
 #[Update(formType: GiftCardType::class)]
 #[Delete]
+#[ApplyStateMachineTransition(stateMachineTransition: 'deactivate', stateMachineGraph: 'gift_card')]
 class GiftCard implements ResourceInterface
 {
+    const STATE_ACTIVE = 'active';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -35,6 +39,9 @@ class GiftCard implements ResourceInterface
 
     #[ORM\Column(type: 'integer')]
     private ?int $amount = null;
+
+    #[ORM\Column(length: 255, options: ['default' => self::STATE_ACTIVE])]
+    private ?string $state = self::STATE_ACTIVE;
 
     public function getId(): ?int
     {
@@ -61,6 +68,18 @@ class GiftCard implements ResourceInterface
     public function setAmount(int $amount): static
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): static
+    {
+        $this->state = $state;
 
         return $this;
     }
