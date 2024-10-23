@@ -1,0 +1,5 @@
+{% set form = hookable_metadata.context.form %}
+
+{% if form.cartItem.packaging is defined %}
+    {{ form_row(form.cartItem.packaging) }}
+{% endif %}

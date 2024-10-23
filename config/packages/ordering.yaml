@@ -1,0 +1,10 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.product.show.page.info.summary.add_to_cart':
+            ordering:
+                template: 'shop/show/page/info/summary/add_to_cart/package.html.twig'
+                priority: 50
+        'sylius_shop.cart.index.form.sections.general.summary':
+            ordering:
+                template: 'shop/cart/index/form/sections/general/summary/package.html.twig'
+                priority: 150

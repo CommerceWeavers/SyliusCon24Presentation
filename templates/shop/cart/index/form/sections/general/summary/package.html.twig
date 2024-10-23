@@ -1,0 +1,11 @@
+{% import "@SyliusShop/shared/macro/money.html.twig" as money %}
+
+{% set cart = hookable_metadata.context.cart %}
+
+{% if cart.packagingTotal > 0 %}
+    <div class="hstack gap-2 mb-2">
+        <div>{{ 'app.ui.packaging'|trans }}:</div>
+        <div class="ms-auto text-end">{{ money.convertAndFormat(cart.packagingTotal) }}</div>
+    </div>
+
+{% endif %}
