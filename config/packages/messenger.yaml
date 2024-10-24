@@ -14,6 +14,8 @@ framework:
             # 'App\Message\YourMessage': async
             'App\Feed\PhaseThree\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseFour\Command\GenerateFeedForProducts': main
+            'App\Feed\PhaseFive\Command\GenerateFeedForProducts': main
+            'App\Feed\PhaseFive\Event\FeedForProductsGenerated': main
 
 # when@test:
 #    framework:
