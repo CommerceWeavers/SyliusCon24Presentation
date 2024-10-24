@@ -12,6 +12,7 @@ framework:
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
+            'App\Feed\PhaseThree\Command\GenerateFeedForProducts': main
 
 # when@test:
 #    framework:
