@@ -33,3 +33,9 @@ doctrine:
                         dir: '%kernel.project_dir%/src/GiftCard/Entity'
                         prefix: 'App\GiftCard\Entity'
                         alias: AppGiftCard
+                    SixPhase:
+                        is_bundle: false
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/Feed/PhaseSix/Entity'
+                        prefix: 'App\Feed\PhaseSix\Entity'
+                        alias: AppFeedPhaseSix

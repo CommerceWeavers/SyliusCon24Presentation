@@ -12,7 +12,7 @@ use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
 #[ORM\Table(name: 'sylius_product_variant')]
 class ProductVariant extends BaseProductVariant
 {
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $generatedGiftCardValue = null;
 
     protected function createTranslation(): ProductVariantTranslationInterface

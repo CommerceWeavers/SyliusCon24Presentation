@@ -14,7 +14,7 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
 class Product extends BaseProduct
 {
     #[ORM\Column(type: 'boolean', nullable: false, options: ['default' => false])]
-    private ?bool $packable = null;
+    private bool $packable = false;
 
     protected function createTranslation(): ProductTranslationInterface
     {

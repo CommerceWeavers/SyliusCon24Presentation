@@ -6,6 +6,9 @@ sylius_fixtures:
                     name: gift_card
                     options:
                         amount: 5
+                product:
+                    options:
+                        random: 500
 
 framework:
     workflows:
