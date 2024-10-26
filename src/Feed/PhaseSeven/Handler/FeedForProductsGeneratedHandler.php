@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Feed\PhaseSix\Handler;
+namespace App\Feed\PhaseSeven\Handler;
 
 use App\Feed\Entity\FeedMemento;
-use App\Feed\PhaseSix\Event\FeedForProductsGenerated;
+use App\Feed\PhaseSeven\Event\FeedForProductsGenerated;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
@@ -39,7 +39,7 @@ final readonly class FeedForProductsGeneratedHandler
         }
 
         if ($feedMemento->amountOfProcessedChunks === $feedForProductsGenerated->totalChunks) {
-            file_put_contents($this->projectDir . '/private/phase-six.txt', json_encode($feedMemento->processedChunks));
+            file_put_contents($this->projectDir . '/private/phase-seven.txt', json_encode($feedMemento->processedChunks));
             $this->entityManager->remove($feedMemento);
         }
 

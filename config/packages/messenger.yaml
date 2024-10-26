@@ -5,19 +5,28 @@ framework:
 
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
-            # async: '%env(MESSENGER_TRANSPORT_DSN)%'
+             different: 
+                 dsn: 'doctrine://default'
+                 options:
+                     queue_name: 'different'
+             main: 
+                 dsn: 'doctrine://default'
+                 options:
+                     queue_name: 'default'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
 
         routing:
             # Route your messages to the transports
-            # 'App\Message\YourMessage': async
+            # 'App\Message\YourMessage': different
             'App\Feed\PhaseThree\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseFour\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseFive\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseFive\Event\FeedForProductsGenerated': main
             'App\Feed\PhaseSix\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseSix\Event\FeedForProductsGenerated': main
+            'App\Feed\PhaseSeven\Command\GenerateFeedForProducts': main
+            'App\Feed\PhaseSeven\Event\FeedForProductsGenerated': different
 
 # when@test:
 #    framework:
@@ -25,4 +34,4 @@ framework:
 #            transports:
 #                # replace with your transport name here (e.g., my_transport: 'in-memory://')
 #                # For more Messenger testing tools, see https://github.com/zenstruck/messenger-test
-#                async: 'in-memory://'
+#                different: 'in-memory://'

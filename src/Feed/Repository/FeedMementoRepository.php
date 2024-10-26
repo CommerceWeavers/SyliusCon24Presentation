@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Feed\PhaseSix\Repository;
+namespace App\Feed\Repository;
 
-use App\Feed\PhaseSix\Entity\FeedMemento;
+use App\Feed\Entity\FeedMemento;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\ResourceRepositoryTrait;

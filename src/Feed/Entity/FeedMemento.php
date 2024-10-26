@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Feed\PhaseSix\Entity;
+namespace App\Feed\Entity;
 
-use App\Feed\PhaseSix\Repository\FeedMementoRepository;
+use App\Feed\Repository\FeedMementoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FeedMementoRepository::class)]
