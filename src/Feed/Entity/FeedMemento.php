@@ -15,9 +15,9 @@ class FeedMemento
         #[ORM\Column]
         public readonly ?string $id = null,
         #[ORM\Column(type: 'integer')]
-        public ?int $amountOfProcessedChunks = 0,
+        public int $amountOfProcessedChunks = 0,
         #[ORM\Column(type: 'json')]
-        public ?array $processedChunks = [])
+        public array $processedChunks = [])
     {
     }
 }

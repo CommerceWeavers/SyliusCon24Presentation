@@ -39,7 +39,10 @@ final readonly class FeedForProductsGeneratedHandler
         }
 
         if ($feedMemento->amountOfProcessedChunks === $feedForProductsGenerated->totalChunks) {
-            file_put_contents($this->projectDir . '/private/phase-six.txt', json_encode($feedMemento->processedChunks));
+            file_put_contents(
+                $this->projectDir . '/private/phase-six.txt',
+                json_encode($feedMemento->processedChunks)
+            );
             $this->entityManager->remove($feedMemento);
         }
 

@@ -23,8 +23,8 @@ final class GenerateFeed extends Command
     protected function configure(): void
     {
         $this
-            ->setName('app:generare-feed:three')
-            ->setDescription('Lists available fixtures')
+            ->setName('app:generate-feed:three')
+            ->setDescription('Generate feed')
         ;
     }
 

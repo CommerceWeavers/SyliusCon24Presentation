@@ -25,6 +25,9 @@ final readonly class FeedForProductsGeneratedHandler
 
     public function __invoke(FeedForProductsGenerated $feedForProductsGenerated): void
     {
-        file_put_contents($this->projectDir . '/private/phase-five.txt', json_encode($feedForProductsGenerated->productFeeds));
+        file_put_contents(
+            $this->projectDir . '/private/phase-five.txt',
+            json_encode($feedForProductsGenerated->productFeeds)
+        );
     }
 }

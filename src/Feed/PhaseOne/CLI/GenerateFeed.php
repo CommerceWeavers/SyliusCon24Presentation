@@ -27,8 +27,8 @@ final class GenerateFeed extends Command
     protected function configure(): void
     {
         $this
-            ->setName('app:generare-feed:one')
-            ->setDescription('Lists available fixtures')
+            ->setName('app:generate-feed:one')
+            ->setDescription('Generate feed')
         ;
     }
 
@@ -49,7 +49,10 @@ final class GenerateFeed extends Command
             $elements[] = new Element($product->getName(), $first->getPrice());
         }
 
-        file_put_contents($this->projectDir . '/private/phase-one.txt',json_encode($elements));
+        file_put_contents(
+            $this->projectDir . '/private/phase-one.txt',
+            json_encode($elements)
+        );
 
         return 0;
     }

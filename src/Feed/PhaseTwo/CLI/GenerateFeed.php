@@ -23,8 +23,8 @@ final class GenerateFeed extends Command
     protected function configure(): void
     {
         $this
-            ->setName('app:generare-feed:two')
-            ->setDescription('Lists available fixtures')
+            ->setName('app:generate-feed:two')
+            ->setDescription('Generate feed')
         ;
     }
 
@@ -32,7 +32,10 @@ final class GenerateFeed extends Command
     {
         $codesOfAllProducts = $this->productRepository->getCodesOfAllProducts();
 
-        $codesOfAllProducts = array_map(fn (array $singleProductArrayWithCode) => $singleProductArrayWithCode['code'], $codesOfAllProducts);
+        $codesOfAllProducts = array_map(
+            fn (array $singleProductArrayWithCode) => $singleProductArrayWithCode['code'],
+            $codesOfAllProducts
+        );
 
         $this->commandBus->dispatch(new GenerateFeedForProducts($codesOfAllProducts));
 

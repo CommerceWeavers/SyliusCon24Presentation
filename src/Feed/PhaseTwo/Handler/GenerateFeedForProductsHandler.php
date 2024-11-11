@@ -27,8 +27,10 @@ final class GenerateFeedForProductsHandler
     {
         $elements = [];
 
+        $products = $this->productRepository->findBy(['code' => $generateFeedForProducts->productCodes]);
+
         /** @var Product $product */
-        foreach ($this->productRepository->findBy(['code' => $generateFeedForProducts->productCodes]) as $product) {
+        foreach ($products as $product) {
             /** @var ProductVariant $productVariant */
             $productVariant = $product->getVariants()->first();
             /** @var ChannelPricing|false $first */
