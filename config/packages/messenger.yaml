@@ -19,6 +19,10 @@ framework:
             'App\Feed\PhaseSix\Event\FeedForProductsGenerated': main
             'App\Feed\PhaseSeven\Command\GenerateFeedForProducts': main
             'App\Feed\PhaseSeven\Event\FeedForProductsGenerated': different
+            'App\Feed\PhaseEight\Command\GenerateFeedForProducts': main
+            'App\Feed\PhaseEight\Command\GenerateFeed': main
+            'App\Feed\PhaseEight\Command\ScheduleFeedGeneration': main
+            'App\Feed\PhaseEight\Event\FeedForProductsGenerated': main
 
 # when@test:
 #    framework:

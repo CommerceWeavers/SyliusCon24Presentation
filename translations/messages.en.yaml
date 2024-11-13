@@ -10,6 +10,7 @@ app:
         unit: Unit
         apply_gift_card: Apply Gift Card code
         applied_gift_card: Applied Gift Card
+        feed_generations: 'Feed generations'
 sylius:
     form:
         attribute_type:

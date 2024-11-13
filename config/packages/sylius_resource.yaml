@@ -11,6 +11,7 @@ sylius_resource:
             - '%kernel.project_dir%/src/Entity'
             - '%kernel.project_dir%/src/GiftCard/Entity'
             - '%kernel.project_dir%/src/Packaging/Entity'
+            - '%kernel.project_dir%/src/Feed/Entity'
 
     # Configure your resources
     resources:
